@@ -1,0 +1,830 @@
+<!doctype html>
+<html lang="en" class="no-js">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>EliteFleet — Luxury Car Rental in Dubai</title>
+<meta name="description" content="EliteFleet is a luxury car rental in Dubai. Explore the collection and send a rental enquiry for your dates.">
+<meta name="theme-color" content="#000000">
+<meta name="color-scheme" content="dark">
+<meta property="og:type" content="website">
+<meta property="og:title" content="EliteFleet — Drive beyond ordinary">
+<meta property="og:description" content="Luxury car rental in Dubai.">
+<meta property="og:image" content="assets/hero-poster.webp">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='95 30 610 290'%3E%3Crect x='95' y='30' width='610' height='290' fill='%23000'/%3E%3Cg fill='%23d9dadc'%3E%3Cpath d='M210 35h222l-41 63H169z'/%3E%3Cpath d='M215 145h180l-34.5 53H237l-32.5 50H330l-43.5 67H100z'/%3E%3Cpath d='M418 145h212l-34.5 53H440l-76 117h-56.5z'/%3E%3C/g%3E%3Cpath fill='%23c9a24e' d='M472 35h228l-41 63H431z'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&display=swap" rel="stylesheet">
+<link rel="preload" as="image" href="assets/hero-poster.webp">
+<script>document.documentElement.classList.replace('no-js','js')</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"AutoRental","name":"EliteFleet Car Rental","address":{"@type":"PostalAddress","addressLocality":"Dubai","addressCountry":"AE"}}
+</script>
+<style>
+/* ============ TOKENS ============ */
+:root{
+  --black:#000;
+  --carbon:#141416;
+  --graphite:#232326;
+  --bone:#ECE7DF;
+  --silver:#A9ACB1;
+  --gold:#C9A24E;
+  --sand:#B89170;
+  --line:rgba(236,231,223,.14);
+  --line-strong:rgba(236,231,223,.32);
+  --font:"Archivo","Helvetica Neue",Arial,sans-serif;
+  --gutter:clamp(20px,4.2vw,72px);
+  --ease:cubic-bezier(.7,0,.2,1);
+  --ease-out:cubic-bezier(.16,1,.3,1);
+  color-scheme:dark;
+}
+@media (prefers-color-scheme: dark){ :root:not([data-theme="light"]){ color-scheme:dark; } }
+:root[data-theme="dark"]{ color-scheme:dark; }
+
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;scroll-padding-top:calc(76px + env(safe-area-inset-top,0px))}
+body{margin:0;background:var(--black);color:var(--bone);font-family:var(--font);font-size:17px;line-height:1.55;font-stretch:100%;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img,video{display:block;max-width:100%}
+a{color:inherit}
+button,input,select,textarea{font:inherit;color:inherit}
+:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+.sr{position:absolute!important;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.skip{position:fixed;left:16px;top:-60px;z-index:100;background:var(--bone);color:var(--black);padding:10px 16px;text-decoration:none;transition:top .2s}
+.skip:focus{top:calc(12px + env(safe-area-inset-top,0px))}
+
+/* film grain — static, almost subliminal */
+body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:90;opacity:.07;mix-blend-mode:overlay;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+
+.display{font-stretch:125%;font-weight:500;letter-spacing:-.01em;line-height:.92}
+
+/* ============ BUTTONS ============ */
+.btn{--bg:var(--bone);--fg:var(--black);position:relative;display:inline-flex;align-items:center;gap:14px;padding:17px 26px;border:1px solid var(--bg);background:var(--bg);color:var(--fg);
+  font-size:13px;font-weight:600;font-stretch:112%;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;cursor:pointer;border-radius:1px;overflow:hidden;isolation:isolate;transition:color .45s var(--ease-out),border-color .45s}
+.btn::before{content:"";position:absolute;inset:0;background:var(--silver);transform:scaleX(0);transform-origin:right;transition:transform .55s var(--ease);z-index:-1}
+.btn:hover::before{transform:scaleX(1);transform-origin:left}
+.btn--line{--bg:transparent;--fg:var(--bone);border-color:var(--line-strong)}
+.btn--line::before{background:var(--bone)}
+.btn--line:hover{color:var(--black);border-color:var(--bone)}
+.btn svg{width:18px;height:18px;flex:none}
+
+/* ============ NAV ============ */
+.nav{position:fixed;inset:0 0 auto;z-index:50;padding:calc(18px + env(safe-area-inset-top,0px)) var(--gutter) 18px;display:flex;align-items:center;gap:40px;
+  transition:background .5s,padding .5s,border-color .5s;border-bottom:1px solid transparent}
+.nav.is-scrolled{background:rgba(0,0,0,.72);-webkit-backdrop-filter:blur(18px) saturate(1.2);backdrop-filter:blur(18px) saturate(1.2);border-color:var(--line);padding-top:calc(12px + env(safe-area-inset-top,0px));padding-bottom:12px}
+.nav__mark{display:block;width:62px;flex:none;margin-right:auto}
+.nav__mark svg{width:100%;height:auto;display:block}
+.nav__links{display:flex;gap:34px;list-style:none;margin:0;padding:0}
+.nav__links a{position:relative;font-size:14px;letter-spacing:.02em;text-decoration:none;color:rgba(236,231,223,.78);padding:6px 0;transition:color .3s}
+.nav__links a::after{content:"";position:absolute;left:0;right:0;bottom:0;height:1px;background:var(--bone);transform:scaleX(0);transform-origin:right;transition:transform .45s var(--ease)}
+.nav__links a:hover,.nav__links a[aria-current="true"]{color:var(--bone)}
+.nav__links a:hover::after,.nav__links a[aria-current="true"]::after{transform:scaleX(1);transform-origin:left}
+.nav .btn{padding:12px 20px}
+.nav__burger{display:none;width:44px;height:44px;margin-right:-10px;background:none;border:0;cursor:pointer;position:relative}
+.nav__burger span{position:absolute;left:10px;right:10px;height:1.5px;background:var(--bone);transition:transform .45s var(--ease),top .45s var(--ease)}
+.nav__burger span:nth-child(1){top:17px}.nav__burger span:nth-child(2){top:26px}
+.menu-open .nav__burger span:nth-child(1){top:21px;transform:rotate(45deg)}
+.menu-open .nav__burger span:nth-child(2){top:21px;transform:rotate(-45deg)}
+
+.menu{position:fixed;inset:0;z-index:45;background:var(--black);display:flex;flex-direction:column;justify-content:flex-end;
+  padding:calc(100px + env(safe-area-inset-top,0px)) var(--gutter) calc(40px + env(safe-area-inset-bottom,0px));
+  clip-path:inset(0 0 100% 0);transition:clip-path .7s var(--ease);visibility:hidden}
+.menu-open .menu{clip-path:inset(0);visibility:visible}
+.menu ul{list-style:none;margin:0 0 40px;padding:0}
+.menu li{border-top:1px solid var(--line)}
+.menu li a{display:block;padding:14px 0;font-size:clamp(34px,10vw,56px);font-stretch:125%;font-weight:500;line-height:1.05;text-decoration:none;
+  transform:translateY(30px);opacity:0;transition:transform .7s var(--ease-out),opacity .5s}
+.menu-open .menu li a{transform:none;opacity:1}
+.menu-open .menu li:nth-child(2) a{transition-delay:.05s}.menu-open .menu li:nth-child(3) a{transition-delay:.1s}.menu-open .menu li:nth-child(4) a{transition-delay:.15s}
+.menu .btn{justify-content:center}
+
+/* ============ HERO ============ */
+.hero{position:relative;height:100svh;min-height:620px;overflow:hidden;background:var(--black);
+  --ph:min(76svh,820px);--pw:calc(var(--ph)*9/16);--word:min(calc(((100vw - var(--pw)) / 2 - var(--gutter) - 30px) / 3.9),180px)}
+.hero::before{content:"";position:absolute;inset:-6%;background:url(assets/hero-ambient.webp) center/cover;opacity:.45}
+.hero__ambient{position:absolute;inset:-6%;width:112%;height:112%;object-fit:cover;opacity:.55;filter:saturate(.9)}
+.hero__shade{position:absolute;inset:0;background:
+  radial-gradient(ellipse 60% 70% at 50% 50%,rgba(0,0,0,.15),rgba(0,0,0,.78) 100%),
+  linear-gradient(to bottom,rgba(0,0,0,.55),transparent 30%,transparent 70%,rgba(0,0,0,.8))}
+.hero__stage{position:absolute;left:0;right:0;top:calc(50% + 24px);transform:translateY(-50%);height:var(--ph);display:grid;grid-template-columns:1fr var(--pw) 1fr;align-items:end}
+.hero__panel{position:relative;margin:0;height:100%;overflow:hidden;z-index:2;box-shadow:0 50px 120px rgba(0,0,0,.65);background:var(--carbon)}
+.hero__film{width:100%;height:100%;object-fit:cover}
+.hero__cap{position:absolute;left:16px;bottom:14px;font-size:12px;letter-spacing:.02em;color:rgba(236,231,223,.75);text-shadow:0 1px 8px rgba(0,0,0,.6)}
+.film-toggle{position:absolute;right:10px;bottom:8px;width:36px;height:36px;border:1px solid rgba(236,231,223,.35);border-radius:50%;background:rgba(0,0,0,.35);cursor:pointer;display:grid;place-items:center;-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px)}
+.film-toggle svg{width:12px;height:12px;fill:var(--bone)}
+.film-toggle .i-play{display:none}.film-toggle[aria-pressed="true"] .i-play{display:block}.film-toggle[aria-pressed="true"] .i-pause{display:none}
+
+.hero__side{position:relative;z-index:1;align-self:stretch;padding-top:calc(var(--ph)*.56);display:flex;flex-direction:column}
+.hero__side--l{align-items:flex-end;text-align:right;padding-right:clamp(16px,1.8vw,30px)}
+.hero__side--r{align-items:flex-start;padding-left:clamp(16px,1.8vw,30px)}
+.hero__mask{overflow:hidden;padding:.04em 0}
+.hero__word{display:block;font-size:var(--word);font-stretch:125%;font-weight:500;line-height:.86;letter-spacing:-.005em;
+  background:linear-gradient(180deg,#F4F1EC 0%,#C9CBCE 55%,#8E9196 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero__line{margin:26px 0 0;font-size:clamp(17px,1.35vw,22px);font-weight:300;letter-spacing:.01em;color:var(--bone)}
+.hero__meta{margin:26px 0 22px;font-size:14px;color:var(--silver);letter-spacing:.02em}
+.hero__mobile{display:none}
+.hero__scroll{position:absolute;left:50%;bottom:calc(18px + env(safe-area-inset-bottom,0px));width:1px;height:46px;background:linear-gradient(var(--line-strong),transparent);z-index:3;transform:translateX(-50%)}
+
+/* Hero entrance — the one orchestrated moment */
+.js .hero__panel{clip-path:inset(0 49.6% 0 49.6%)}
+.js .hero__film{transform:scale(1.14)}
+.js .hero__word--l{transform:translateX(102%)}
+.js .hero__word--r{transform:translateX(-102%)}
+.js .hero__line,.js .hero__meta,.js .hero__side .btn,.js .hero__cap,.js .film-toggle,.js .nav{opacity:0}
+.js .hero__ambient{opacity:0}
+.is-ready .hero__panel{clip-path:inset(0);transition:clip-path 1.6s var(--ease) .15s}
+.is-ready .hero__film{transform:scale(1);transition:transform 3.2s var(--ease-out) .15s}
+.is-ready .hero__word--l,.is-ready .hero__word--r{transform:none;transition:transform 1.5s var(--ease) .75s}
+.is-ready .hero__line,.is-ready .hero__meta,.is-ready .hero__side .btn,.is-ready .hero__cap,.is-ready .film-toggle{opacity:1;transition:opacity 1s 1.7s}
+.is-ready .nav{opacity:1;transition:opacity 1s 1.4s,background .5s,padding .5s,border-color .5s}
+.is-ready .hero__ambient{opacity:.55;transition:opacity 2.4s .4s}
+
+.is-settled .hero__word--l,.is-settled .hero__word--r{transition:none}
+
+/* ============ SECTION SHELL ============ */
+.section{position:relative;padding:clamp(96px,16vh,180px) var(--gutter)}
+.head{display:grid;grid-template-columns:repeat(12,1fr);gap:24px;align-items:end;margin-bottom:clamp(56px,10vh,120px)}
+.head h2{grid-column:1/span 8;margin:0;font-size:clamp(44px,7.2vw,124px)}
+.head p{grid-column:9/span 4;margin:0;color:var(--silver);max-width:34ch;font-size:16px}
+
+/* ============ COLLECTION ============ */
+.collection{background:var(--black)}
+.car{display:grid;grid-template-columns:repeat(12,1fr);gap:24px;align-items:center}
+.car + .car{margin-top:clamp(110px,20vh,220px)}
+.car__media{grid-column:1/span 6;position:relative;aspect-ratio:4/5;overflow:hidden;background:var(--carbon)}
+.car__frame{position:absolute;left:0;right:0;top:-7%;height:114%;will-change:transform}
+.car__shot{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transform:scale(1.04);transition:opacity .9s var(--ease-out),transform 1.4s var(--ease-out)}
+.car__shot.is-on{opacity:1;transform:scale(1)}
+.car__media:hover .car__shot.is-on{transform:scale(1.025)}
+.car__info{grid-column:8/span 5}
+.car--flip .car__media{grid-column:7/span 6;grid-row:1}
+.car--flip .car__info{grid-column:1/span 5;grid-row:1}
+.car__cat{margin:0 0 18px;color:var(--silver);font-size:15px}
+.car__make{display:block;font-size:clamp(20px,1.9vw,30px);font-weight:300;font-stretch:100%;letter-spacing:.01em;margin-bottom:10px}
+.car__model{display:block;font-size:clamp(54px,7.4vw,128px)}
+.car h3{margin:0}
+.car__spec{margin:30px 0 0;padding:18px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);font-size:15px;color:rgba(236,231,223,.86)}
+.car__price{display:flex;justify-content:space-between;align-items:baseline;gap:20px;margin:18px 0 34px;font-size:15px;color:var(--silver)}
+.car__price strong{color:var(--bone);font-weight:500;font-size:18px}
+.car__thumbs{display:flex;gap:10px;margin:0 0 34px;padding:0;list-style:none}
+.car__thumbs button{width:62px;aspect-ratio:3/4;padding:0;border:1px solid var(--line);background:var(--carbon);cursor:pointer;overflow:hidden;opacity:.5;transition:opacity .3s,border-color .3s}
+.car__thumbs button[aria-pressed="true"],.car__thumbs button:hover{opacity:1;border-color:var(--bone)}
+.car__thumbs img{width:100%;height:100%;object-fit:cover}
+.car__more{margin-top:clamp(90px,16vh,160px);display:flex;flex-wrap:wrap;gap:24px 40px;align-items:center;justify-content:space-between;padding-top:36px;border-top:1px solid var(--line)}
+.car__more p{margin:0;font-size:clamp(22px,2.4vw,34px);font-weight:300;max-width:30ch}
+
+/* image reveal on scroll */
+.js.motion .car__media{clip-path:inset(12% 8% 12% 8%)}
+.js.motion .car__media .car__frame{transform:scale(1.18)}
+.js.motion .car__media.in{clip-path:inset(0);transition:clip-path 1.5s var(--ease)}
+.js.motion .car__media.in .car__frame{transition:transform 2s var(--ease-out)}
+
+/* ============ EXPERIENCE ============ */
+.exp{position:relative;height:330vh;background:var(--black)}
+.exp__sticky{position:sticky;top:0;height:100svh;overflow:hidden}
+.exp__panes{position:absolute;inset:0;display:grid;grid-template-columns:repeat(3,1fr);gap:2px}
+.exp__pane{position:relative;overflow:hidden;margin:0}
+.exp__pane img{width:100%;height:100%;object-fit:cover;filter:brightness(.26) saturate(.6);transform:scale(1.06);transition:filter 1.1s var(--ease-out),transform 2.2s var(--ease-out)}
+.exp[data-active="0"] .exp__pane:nth-child(1) img,
+.exp[data-active="1"] .exp__pane:nth-child(2) img,
+.exp[data-active="2"] .exp__pane:nth-child(3) img{filter:brightness(.92) saturate(1);transform:scale(1)}
+.exp__shade{position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.85),rgba(0,0,0,0) 55%);pointer-events:none}
+.exp__lines{position:absolute;left:var(--gutter);right:var(--gutter);bottom:clamp(48px,10vh,110px);list-style:none;margin:0;padding:0;min-height:2.1em;font-size:clamp(38px,6vw,104px)}
+.exp__lines li{position:absolute;left:0;bottom:0;font-weight:300;line-height:1;letter-spacing:-.015em;max-width:16ch;opacity:0;transform:translateY(.35em);transition:opacity .8s,transform 1s var(--ease-out)}
+.exp[data-active="0"] .exp__lines li:nth-child(1),
+.exp[data-active="1"] .exp__lines li:nth-child(2),
+.exp[data-active="2"] .exp__lines li:nth-child(3){opacity:1;transform:none;transition-delay:.15s}
+.exp__count{position:absolute;right:var(--gutter);top:calc(110px + env(safe-area-inset-top,0px));display:flex;gap:8px}
+.exp__count i{width:28px;height:2px;background:var(--line-strong);transition:background .5s}
+.exp[data-active="0"] .exp__count i:nth-child(1),.exp[data-active="1"] .exp__count i:nth-child(2),.exp[data-active="2"] .exp__count i:nth-child(3){background:var(--bone)}
+.no-js .exp{height:auto}.no-js .exp__sticky{position:relative}.no-js .exp__lines li{position:static;opacity:1;transform:none}
+
+/* ============ DIFFERENCE ============ */
+.diff{background:var(--carbon)}
+.diff__list{list-style:none;margin:0;padding:0}
+.diff__row{display:grid;grid-template-columns:repeat(12,1fr);gap:24px;align-items:baseline;padding:clamp(30px,5vh,52px) 0;border-top:1px solid var(--line)}
+.diff__row:last-child{border-bottom:1px solid var(--line)}
+.diff__row h3{grid-column:1/span 7;margin:0;font-size:clamp(30px,4.4vw,74px);transition:transform .7s var(--ease-out)}
+.diff__row p{grid-column:9/span 4;margin:0;color:var(--silver);max-width:34ch;transition:color .4s}
+.diff__row:hover h3{transform:translateX(14px)}
+.diff__row:hover p{color:var(--bone)}
+
+/* ============ RESERVE ============ */
+.reserve{background:var(--black)}
+.reserve__grid{display:grid;grid-template-columns:repeat(12,1fr);gap:24px}
+.reserve__intro{grid-column:1/span 4}
+.reserve__intro h2{margin:0 0 28px;font-size:clamp(44px,5.6vw,96px)}
+.reserve__intro p{margin:0 0 40px;color:var(--silver);max-width:32ch}
+.direct{list-style:none;margin:0;padding:0;border-top:1px solid var(--line)}
+.direct li{display:flex;justify-content:space-between;gap:16px;padding:16px 0;border-bottom:1px solid var(--line);font-size:15px}
+.direct span{color:var(--silver)}
+.direct a{text-decoration:none;text-align:right}
+.direct a[href]:hover{text-decoration:underline;text-underline-offset:4px}
+.ph{color:var(--silver);font-style:italic;border-bottom:1px dashed var(--line-strong)}
+
+.form{grid-column:6/span 7}
+.form fieldset{border:0;margin:0 0 52px;padding:0;min-width:0}
+.form legend{display:flex;gap:14px;align-items:baseline;width:100%;padding:0 0 18px;margin-bottom:22px;border-bottom:1px solid var(--line);font-size:clamp(20px,1.8vw,26px);font-stretch:112%;font-weight:500}
+.form legend b{font-weight:400;font-size:13px;color:var(--silver);font-stretch:100%;min-width:22px}
+.picks{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.pick{position:relative;cursor:pointer}
+.pick input{position:absolute;opacity:0;pointer-events:none}
+.pick__card{display:block;border:1px solid var(--line);background:var(--carbon);transition:border-color .3s}
+.pick__img{display:block;aspect-ratio:3/4;overflow:hidden;background:var(--graphite)}
+.pick__img img{width:100%;height:100%;object-fit:cover;filter:grayscale(.8) brightness(.6);transition:filter .5s,transform 1s var(--ease-out)}
+.pick__img--blank{display:grid;place-items:center;font-size:42px;font-weight:200;color:var(--silver)}
+.pick__name{display:block;padding:12px 14px 14px;font-size:14px;line-height:1.35}
+.pick__name small{display:block;color:var(--silver);font-size:12px}
+.pick:hover .pick__img img{filter:grayscale(.2) brightness(.85)}
+.pick input:checked + .pick__card{border-color:var(--bone)}
+.pick input:checked + .pick__card img{filter:none;transform:scale(1.04)}
+.pick input:focus-visible + .pick__card{outline:2px solid var(--gold);outline-offset:3px}
+.fields{display:grid;grid-template-columns:1fr 1fr;gap:26px 24px}
+.field{display:flex;flex-direction:column;gap:8px;min-width:0}
+.field--full{grid-column:1/-1}
+.field label{font-size:13px;color:var(--silver);letter-spacing:.02em}
+.field input,.field textarea{width:100%;background:transparent;border:0;border-bottom:1px solid var(--line-strong);padding:10px 0 12px;font-size:19px;border-radius:0;transition:border-color .3s;color-scheme:dark}
+.field textarea{resize:vertical;min-height:84px;font-size:17px}
+.field input:focus,.field textarea:focus{outline:none;border-color:var(--bone)}
+.field input:focus-visible,.field textarea:focus-visible{box-shadow:0 2px 0 0 var(--gold)}
+.field [aria-invalid="true"]{border-color:#E07A6A}
+.err{min-height:1.2em;font-size:13px;color:#F0A091}
+.picks + .err{margin-top:10px}
+.actions{display:flex;flex-wrap:wrap;gap:14px;align-items:center}
+.status{margin:22px 0 0;font-size:15px;color:var(--silver);min-height:1.5em}
+.status.is-ok{color:var(--bone)}.status.is-err{color:#F0A091}
+.fine{margin:14px 0 0;font-size:13px;color:var(--silver);max-width:52ch}
+
+/* ============ FINAL FRAME ============ */
+.final{position:relative;min-height:100svh;display:grid;grid-template-columns:1fr 1fr;background:var(--black);overflow:hidden}
+.final__img{position:relative;grid-column:2;overflow:hidden;margin:0}
+.final__img img{position:absolute;left:0;right:0;top:-8%;height:116%;width:100%;object-fit:cover;will-change:transform}
+.final__img::after{content:"";position:absolute;inset:0;background:linear-gradient(to right,var(--black) 0%,rgba(0,0,0,.2) 32%,transparent 60%),linear-gradient(to top,rgba(0,0,0,.5),transparent 40%)}
+.final__copy{grid-column:1;grid-row:1;align-self:center;padding:120px var(--gutter);position:relative;z-index:2}
+.final h2{margin:0 0 44px;font-size:clamp(46px,6.2vw,112px);max-width:9ch}
+.final__sign{margin:48px 0 0;font-size:13px;letter-spacing:.14em;color:var(--silver);font-stretch:125%}
+
+/* ============ FOOTER ============ */
+.foot{background:var(--black);border-top:1px solid var(--line);padding:72px var(--gutter) calc(36px + env(safe-area-inset-bottom,0px))}
+.foot__grid{display:grid;grid-template-columns:repeat(12,1fr);gap:32px 24px}
+.foot__brand{grid-column:1/span 4}
+.foot__brand svg{width:88px;height:auto;display:block;margin-bottom:22px}
+.foot__brand p{margin:0;color:var(--silver);font-size:15px;max-width:28ch}
+.foot__col{grid-column:span 2}
+.foot__col--wide{grid-column:span 4}
+.foot h3{margin:0 0 18px;font-size:13px;font-weight:500;color:var(--silver)}
+.foot ul{list-style:none;margin:0;padding:0;display:grid;gap:10px;font-size:15px}
+.foot li a{text-decoration:none}
+.foot li a[href]:hover{text-decoration:underline;text-underline-offset:4px}
+.foot__base{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;margin-top:64px;padding-top:24px;border-top:1px solid var(--line);font-size:13px;color:var(--silver)}
+
+/* ============ RESPONSIVE ============ */
+@media (max-width:1080px){
+  .nav__links{gap:24px}
+  .reserve__intro{grid-column:1/-1}
+  .form{grid-column:1/-1;margin-top:40px}
+  .reserve__intro p{max-width:46ch}
+}
+@media (max-width:900px), (max-aspect-ratio:4/5){
+  .nav__links,.nav .btn{display:none}
+  .nav__burger{display:block}
+  .nav__mark{width:54px}
+  /* hero: the portrait film becomes the whole screen */
+  .hero__ambient,.hero__side,.hero__scroll{display:none}
+  .hero__stage{position:absolute;inset:0;top:0;transform:none;height:auto;display:block}
+  .hero__panel{position:absolute;inset:0;box-shadow:none}
+  .js .hero__panel{clip-path:inset(0 0 0 0)}
+  .hero__panel::after{content:"";position:absolute;inset:0;background:linear-gradient(to bottom,rgba(0,0,0,.6),transparent 20%,transparent 36%,rgba(0,0,0,.72) 62%,rgba(0,0,0,.95) 86%)}
+  .hero__cap{display:none}
+  .film-toggle{z-index:2;top:calc(84px + env(safe-area-inset-top,0px));bottom:auto;right:var(--gutter)}
+  .hero__mobile{display:block;position:absolute;z-index:3;left:var(--gutter);right:var(--gutter);bottom:calc(34px + env(safe-area-inset-bottom,0px))}
+  .hero__mobile .hero__mask{margin-left:-.04em}
+  .hero__mobile .hero__word{font-size:min(10.9vw,84px)}
+  .hero__mobile .hero__line{margin-top:18px}
+  .hero__mobile .hero__meta{margin:6px 0 26px}
+  .hero__mobile .btn{width:100%;justify-content:center}
+  .js .hero__mobile .hero__word{transform:translateY(105%)}
+  .is-ready .hero__mobile .hero__word{transform:none;transition:transform 1.3s var(--ease) .5s}
+  .js .hero__mobile .hero__line,.js .hero__mobile .hero__meta,.js .hero__mobile .btn{opacity:0}
+  .is-ready .hero__mobile .hero__line,.is-ready .hero__mobile .hero__meta,.is-ready .hero__mobile .btn{opacity:1;transition:opacity 1s 1.2s}
+  .js .hero__film{transform:scale(1.12)}
+
+  .head{display:block}
+  .head p{margin-top:22px}
+  .car,.car--flip{display:flex;flex-direction:column;align-items:stretch;gap:34px}
+  .car__media{aspect-ratio:4/5}
+  .exp__panes{display:block}
+  .exp__pane{position:absolute;inset:0;opacity:0;transition:opacity 1.1s}
+  .exp[data-active="0"] .exp__pane:nth-child(1),.exp[data-active="1"] .exp__pane:nth-child(2),.exp[data-active="2"] .exp__pane:nth-child(3){opacity:1}
+  .exp__lines{font-size:clamp(40px,11vw,72px)}
+  .diff__row{display:block}
+  .diff__row p{margin-top:14px}
+  .final{display:block;min-height:100svh}
+  .final__img{position:absolute;inset:0}
+  .final__img::after{background:linear-gradient(to top,rgba(0,0,0,.95) 10%,rgba(0,0,0,.35) 55%,rgba(0,0,0,.2))}
+  .final__copy{position:relative;min-height:100svh;display:flex;flex-direction:column;justify-content:flex-end;padding:120px var(--gutter) 64px}
+  .foot__brand,.foot__col--wide{grid-column:1/-1}
+  .foot__col{grid-column:span 6}
+}
+@media (max-width:560px){
+  body{font-size:16px}
+  .picks{grid-template-columns:1fr 1fr 1fr;gap:8px}
+  .pick__name{padding:10px;font-size:13px}
+  .fields{grid-template-columns:1fr}
+  .actions .btn{width:100%;justify-content:center}
+  .car__thumbs button{width:54px}
+}
+
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{transition-duration:.01ms!important;transition-delay:0s!important;animation:none!important}
+  .js .hero__panel,.js .hero__film,.js .hero__word,.js .hero__word--l,.js .hero__word--r{clip-path:none;transform:none}
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <linearGradient id="efSilver" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#F6F6F5"/><stop offset=".45" stop-color="#B7B9BC"/><stop offset=".7" stop-color="#E4E5E6"/><stop offset="1" stop-color="#8F9296"/>
+    </linearGradient>
+    <linearGradient id="efGold" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#8C6A24"/><stop offset=".45" stop-color="#E9C977"/><stop offset="1" stop-color="#A9822F"/>
+    </linearGradient>
+    <symbol id="ef" viewBox="95 30 610 290">
+      <g fill="url(#efSilver)">
+        <path d="M210 35h222l-41 63H169z"/>
+        <path d="M215 145h180l-34.5 53H237l-32.5 50H330l-43.5 67H100z"/>
+        <path d="M418 145h212l-34.5 53H440l-76 117h-56.5z"/>
+      </g>
+      <path fill="url(#efGold)" d="M472 35h228l-41 63H431z"/>
+    </symbol>
+  </defs>
+</svg>
+
+<header class="nav" id="nav">
+  <a class="nav__mark" href="#top" aria-label="EliteFleet, back to top"><svg viewBox="95 30 610 290" aria-hidden="true"><use href="#ef"/></svg></a>
+  <nav aria-label="Main">
+    <ul class="nav__links">
+      <li><a href="#collection">Collection</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+  <a class="btn" href="#reserve">Reserve a car</a>
+  <button class="nav__burger" id="burger" aria-expanded="false" aria-controls="menu" aria-label="Open menu"><span></span><span></span></button>
+</header>
+
+<div class="menu" id="menu" aria-hidden="true">
+  <ul>
+    <li><a href="#collection">Collection</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a class="btn" href="#reserve">Reserve a car</a>
+</div>
+
+<main id="main">
+
+<!-- ============ HERO ============ -->
+<section class="hero" id="top" aria-labelledby="heroTitle">
+  <h1 class="sr" id="heroTitle">EliteFleet. Drive beyond ordinary. Luxury car rental in Dubai.</h1>
+  <video class="hero__ambient" id="ambient" src="assets/hero-ambient.mp4" poster="assets/hero-ambient.webp" muted loop playsinline preload="auto" aria-hidden="true" tabindex="-1"></video>
+  <div class="hero__shade"></div>
+
+  <div class="hero__stage" id="stage">
+    <div class="hero__side hero__side--l" aria-hidden="true">
+      <div class="hero__mask"><span class="hero__word hero__word--l">ELITE</span></div>
+      <p class="hero__line">Drive beyond ordinary.</p>
+    </div>
+
+    <figure class="hero__panel" id="panel">
+      <video class="hero__film" id="film" src="assets/hero-cullinan.mp4" poster="assets/hero-poster.webp" muted loop playsinline preload="auto" aria-label="A black Rolls-Royce Cullinan in the desert outside Dubai at golden hour"></video>
+      <figcaption class="hero__cap">Rolls-Royce Cullinan, Dubai desert</figcaption>
+      <button class="film-toggle" id="filmToggle" aria-pressed="false" aria-label="Pause background video">
+        <svg class="i-pause" viewBox="0 0 12 12"><rect x="2" y="1" width="3" height="10"/><rect x="7" y="1" width="3" height="10"/></svg>
+        <svg class="i-play" viewBox="0 0 12 12"><path d="M3 1l8 5-8 5z"/></svg>
+      </button>
+    </figure>
+
+    <div class="hero__side hero__side--r">
+      <div class="hero__mask" aria-hidden="true"><span class="hero__word hero__word--r">FLEET</span></div>
+      <p class="hero__meta">Luxury Car Rental · Dubai</p>
+      <a class="btn btn--line" href="#collection">Explore the collection</a>
+    </div>
+  </div>
+
+  <div class="hero__mobile">
+    <div class="hero__mask" aria-hidden="true"><span class="hero__word">ELITEFLEET</span></div>
+    <p class="hero__line" aria-hidden="true">Drive beyond ordinary.</p>
+    <p class="hero__meta">Luxury Car Rental · Dubai</p>
+    <a class="btn" href="#collection">Explore the collection</a>
+  </div>
+  <span class="hero__scroll" aria-hidden="true"></span>
+</section>
+
+<!-- ============ 01 COLLECTION ============ -->
+<section class="section collection" id="collection" aria-labelledby="colTitle">
+  <div class="head">
+    <h2 class="display" id="colTitle">The collection</h2>
+    <p>Two cars from the fleet, filmed in Dubai. Availability changes, so tell us your dates and we'll confirm.</p>
+  </div>
+
+  <article class="car" data-car="cullinan" aria-labelledby="carCullinan">
+    <div class="car__media" data-reveal>
+      <div class="car__frame" data-parallax=".08">
+        <img class="car__shot is-on" src="assets/cullinan-front.webp" alt="Black Rolls-Royce Cullinan, front view, parked on desert sand" loading="lazy" width="720" height="1280">
+        <img class="car__shot" src="assets/cullinan-interior.webp" alt="Cullinan with rear coach doors open, showing a turquoise leather interior" loading="lazy" width="720" height="1280">
+        <img class="car__shot" src="assets/cullinan-detail.webp" alt="Close-up of the Cullinan's headlight and grille" loading="lazy" width="720" height="1280">
+      </div>
+    </div>
+    <div class="car__info">
+      <p class="car__cat">Luxury SUV</p>
+      <h3 id="carCullinan"><span class="car__make">Rolls-Royce</span><span class="car__model display">Cullinan</span></h3>
+      <p class="car__spec">6.75 L twin-turbo V12, all-wheel drive, coach doors</p>
+      <p class="car__price"><span>Daily rate</span><strong data-rate="cullinan">On request</strong></p>
+      <ul class="car__thumbs" aria-label="Cullinan photos">
+        <li><button aria-pressed="true" aria-label="Front view"><img src="assets/cullinan-front.webp" alt="" loading="lazy"></button></li>
+        <li><button aria-pressed="false" aria-label="Interior"><img src="assets/cullinan-interior.webp" alt="" loading="lazy"></button></li>
+        <li><button aria-pressed="false" aria-label="Headlight detail"><img src="assets/cullinan-detail.webp" alt="" loading="lazy"></button></li>
+      </ul>
+      <a class="btn" href="#reserve" data-reserve="Rolls-Royce Cullinan">Reserve the Cullinan</a>
+    </div>
+  </article>
+
+  <article class="car car--flip" data-car="roma" aria-labelledby="carRoma">
+    <div class="car__media" data-reveal>
+      <div class="car__frame" data-parallax=".08">
+        <video class="car__shot is-on" id="romaFilm" src="assets/roma-spider.mp4" poster="assets/roma-front.webp" muted loop playsinline preload="metadata" aria-label="Yellow Ferrari Roma Spider in the EliteFleet showroom"></video>
+        <img class="car__shot" src="assets/roma-front.webp" alt="Yellow Ferrari Roma Spider, front view, in the EliteFleet showroom" loading="lazy" width="720" height="1280">
+        <img class="car__shot" src="assets/roma-detail.webp" alt="Close-up of the Roma Spider's headlight" loading="lazy" width="720" height="1280">
+      </div>
+    </div>
+    <div class="car__info">
+      <p class="car__cat">Convertible grand tourer</p>
+      <h3 id="carRoma"><span class="car__make">Ferrari</span><span class="car__model display">Roma Spider</span></h3>
+      <p class="car__spec">3.9 L twin-turbo V8, soft-top roof, 2+2 seats</p>
+      <p class="car__price"><span>Daily rate</span><strong data-rate="roma">On request</strong></p>
+      <ul class="car__thumbs" aria-label="Roma Spider photos">
+        <li><button aria-pressed="true" aria-label="Showroom film"><img src="assets/final-showroom.webp" alt="" loading="lazy"></button></li>
+        <li><button aria-pressed="false" aria-label="Front view"><img src="assets/roma-front.webp" alt="" loading="lazy"></button></li>
+        <li><button aria-pressed="false" aria-label="Headlight detail"><img src="assets/roma-detail.webp" alt="" loading="lazy"></button></li>
+      </ul>
+      <a class="btn" href="#reserve" data-reserve="Ferrari Roma Spider">Reserve the Roma Spider</a>
+    </div>
+  </article>
+
+  <div class="car__more">
+    <p>Looking for something else? Ask us what's in the fleet for your dates.</p>
+    <a class="btn btn--line" href="#reserve" data-reserve="Another car">Ask about another car</a>
+  </div>
+</section>
+
+<!-- ============ 02 EXPERIENCE ============ -->
+<section class="exp" id="experience" data-active="0" aria-label="The experience">
+  <div class="exp__sticky">
+    <div class="exp__panes">
+      <figure class="exp__pane"><img src="assets/exp-dunes.webp" alt="The Cullinan alone on open desert sand under a pale sky" loading="lazy"></figure>
+      <figure class="exp__pane"><img src="assets/exp-dusk.webp" alt="The Cullinan's headlights on a desert road at dusk" loading="lazy"></figure>
+      <figure class="exp__pane"><img src="assets/exp-cockpit.webp" alt="The Roma Spider's cockpit, black leather with yellow stitching" loading="lazy"></figure>
+    </div>
+    <div class="exp__shade"></div>
+    <div class="exp__count" aria-hidden="true"><i></i><i></i><i></i></div>
+    <ul class="exp__lines">
+      <li>Your city. Your pace.</li>
+      <li>Exceptional cars. Effortless journeys.</li>
+      <li>Dubai, experienced differently.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ============ 03 DIFFERENCE ============ -->
+<section class="section diff" id="about" aria-labelledby="diffTitle">
+  <div class="head">
+    <h2 class="display" id="diffTitle">The EliteFleet difference</h2>
+  </div>
+  <ul class="diff__list">
+    <li class="diff__row"><h3 class="display">Curated luxury fleet</h3><p>A focused selection of luxury and performance cars, not an endless list.</p></li>
+    <li class="diff__row"><h3 class="display">Seamless reservations</h3><p>Choose a car and your dates, send it in one message, and we reply with availability.</p></li>
+    <li class="diff__row"><h3 class="display">Personalised service</h3><p>You speak with our team directly, from first message to handover.</p></li>
+  </ul>
+</section>
+
+<!-- ============ 04 RESERVE ============ -->
+<section class="section reserve" id="reserve" aria-labelledby="resTitle">
+  <div class="reserve__grid">
+    <div class="reserve__intro">
+      <h2 class="display" id="resTitle">Reserve a car</h2>
+      <p>Send us the car and your dates. We'll confirm availability and the rate before anything is booked.</p>
+      <ul class="direct">
+        <li><span>WhatsApp</span><a data-config="whatsapp">—</a></li>
+        <li><span>Phone</span><a data-config="phone">—</a></li>
+        <li><span>Email</span><a data-config="email">—</a></li>
+      </ul>
+    </div>
+
+    <form class="form" id="enquiry" novalidate>
+      <fieldset>
+        <legend><b>1</b>Choose a car</legend>
+        <div class="picks" role="radiogroup" aria-describedby="err-car">
+          <label class="pick">
+            <input type="radio" name="car" value="Rolls-Royce Cullinan">
+            <span class="pick__card"><span class="pick__img"><img src="assets/cullinan-front.webp" alt="" loading="lazy"></span><span class="pick__name">Cullinan<small>Rolls-Royce</small></span></span>
+          </label>
+          <label class="pick">
+            <input type="radio" name="car" value="Ferrari Roma Spider">
+            <span class="pick__card"><span class="pick__img"><img src="assets/roma-front.webp" alt="" loading="lazy"></span><span class="pick__name">Roma Spider<small>Ferrari</small></span></span>
+          </label>
+          <label class="pick">
+            <input type="radio" name="car" value="Another car">
+            <span class="pick__card"><span class="pick__img pick__img--blank" aria-hidden="true">+</span><span class="pick__name">Another car<small>Tell us below</small></span></span>
+          </label>
+        </div>
+        <p class="err" id="err-car" aria-live="polite"></p>
+      </fieldset>
+
+      <fieldset>
+        <legend><b>2</b>Your dates</legend>
+        <div class="fields">
+          <div class="field"><label for="from">Pick-up date</label><input type="date" id="from" name="from" required aria-describedby="err-from"><span class="err" id="err-from"></span></div>
+          <div class="field"><label for="to">Return date</label><input type="date" id="to" name="to" required aria-describedby="err-to"><span class="err" id="err-to"></span></div>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend><b>3</b>How we reach you</legend>
+        <div class="fields">
+          <div class="field"><label for="name">Full name</label><input type="text" id="name" name="name" autocomplete="name" required aria-describedby="err-name"><span class="err" id="err-name"></span></div>
+          <div class="field"><label for="tel">Mobile number</label><input type="tel" id="tel" name="tel" autocomplete="tel" inputmode="tel" required aria-describedby="err-tel"><span class="err" id="err-tel"></span></div>
+          <div class="field field--full"><label for="note">Anything else (optional)</label><textarea id="note" name="note" rows="3" placeholder="Pick-up location, another car you'd like, questions"></textarea></div>
+        </div>
+      </fieldset>
+
+      <div class="actions">
+        <button class="btn" type="submit" data-via="whatsapp">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.8-1.2 2.2 2.2 0 0 0 .1-1.2c0-.1-.2-.2-.5-.3z"/></svg>
+          Send on WhatsApp
+        </button>
+        <button class="btn btn--line" type="submit" data-via="email">Send by email</button>
+      </div>
+      <p class="status" id="status" role="status" aria-live="polite"></p>
+      <p class="fine">This sends an enquiry, not a booking. Your reservation is confirmed only when our team replies.</p>
+    </form>
+  </div>
+</section>
+
+<!-- ============ 05 FINAL FRAME ============ -->
+<section class="final" aria-labelledby="finalTitle">
+  <figure class="final__img"><img src="assets/final-showroom.webp" alt="The Roma Spider with its roof down in the EliteFleet showroom" loading="lazy" data-parallax=".1"></figure>
+  <div class="final__copy">
+    <h2 class="display" id="finalTitle">Your next drive starts here.</h2>
+    <a class="btn" href="#reserve">Reserve your experience</a>
+    <p class="final__sign">ELITEFLEET — DUBAI</p>
+  </div>
+</section>
+
+</main>
+
+<footer class="foot" id="contact">
+  <div class="foot__grid">
+    <div class="foot__brand">
+      <svg viewBox="95 30 610 290" role="img" aria-label="EliteFleet"><use href="#ef"/></svg>
+      <p>EliteFleet Car Rental. Luxury and performance cars in Dubai.</p>
+    </div>
+    <div class="foot__col">
+      <h3>Explore</h3>
+      <ul><li><a href="#collection">Collection</a></li><li><a href="#experience">Experience</a></li><li><a href="#about">About</a></li><li><a href="#reserve">Reserve a car</a></li></ul>
+    </div>
+    <div class="foot__col--wide foot__col">
+      <h3>Contact</h3>
+      <ul>
+        <li><a data-config="whatsapp">—</a></li>
+        <li><a data-config="phone">—</a></li>
+        <li><a data-config="email">—</a></li>
+        <li><a data-config="address">—</a></li>
+      </ul>
+    </div>
+    <div class="foot__col">
+      <h3>Follow</h3>
+      <ul><li><a data-config="instagram">—</a></li></ul>
+    </div>
+  </div>
+  <div class="foot__base"><span>© <span id="yr">2026</span> EliteFleet Car Rental, Dubai</span><a href="#top" style="text-decoration:none">Back to top</a></div>
+</footer>
+
+<script>
+/* =========================================================
+   CONFIG — replace these with EliteFleet's real details.
+   Anything left blank shows as a clearly marked placeholder.
+   ========================================================= */
+const CONFIG = {
+  whatsapp:  "",   // digits only, with country code, e.g. "9715XXXXXXXX"
+  phone:     "",   // as it should display, e.g. "+971 5X XXX XXXX"
+  email:     "",   // e.g. "reservations@yourdomain.ae"
+  address:   "",   // showroom address in Dubai
+  instagram: "",   // full profile URL
+  rates: { cullinan: "", roma: "" }  // e.g. "AED X,XXX" — blank shows "On request"
+};
+
+(() => {
+  const $ = (s, c = document) => c.querySelector(s);
+  const $$ = (s, c = document) => [...c.querySelectorAll(s)];
+  const root = document.documentElement;
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (!reduce) root.classList.add('motion');
+  $('#yr').textContent = new Date().getFullYear();
+
+  /* ---------- config → contact details ---------- */
+  const labels = { whatsapp:'WhatsApp number', phone:'Phone number', email:'Email address', address:'Showroom address', instagram:'Instagram' };
+  $$('[data-config]').forEach(a => {
+    const k = a.dataset.config, v = CONFIG[k];
+    if (!v) { a.textContent = labels[k] + ' — to be added'; a.classList.add('ph'); a.removeAttribute('href'); return; }
+    if (k === 'whatsapp') { a.href = 'https://wa.me/' + v.replace(/\D/g,''); a.textContent = '+' + v.replace(/\D/g,''); a.target = '_blank'; a.rel = 'noopener'; }
+    else if (k === 'phone') { a.href = 'tel:' + v.replace(/[^\d+]/g,''); a.textContent = v; }
+    else if (k === 'email') { a.href = 'mailto:' + v; a.textContent = v; }
+    else if (k === 'instagram') { a.href = v; a.textContent = 'Instagram'; a.target = '_blank'; a.rel = 'noopener'; }
+    else { a.textContent = v; }
+  });
+  $$('[data-rate]').forEach(el => { const r = CONFIG.rates[el.dataset.rate]; if (r) el.textContent = r + ' / day'; });
+
+  /* ---------- hero entrance + video ---------- */
+  const film = $('#film'), ambient = $('#ambient'), toggle = $('#filmToggle');
+  let started = false;
+  const start = () => {
+    if (started) return; started = true;
+    requestAnimationFrame(() => root.classList.add('is-ready'));
+    setTimeout(() => root.classList.add('is-settled'), 2600);
+  };
+  if (reduce) {
+    start();
+    toggle.setAttribute('aria-pressed','true'); toggle.setAttribute('aria-label','Play background video');
+  } else {
+    const play = v => { const p = v.play(); if (p) p.catch(() => {}); };
+    play(film); play(ambient);
+    film.addEventListener('playing', start, { once:true });
+    film.addEventListener('loadeddata', start, { once:true });
+    setTimeout(start, 1400);
+    setInterval(() => { // keep the blurred backdrop in step with the film
+      if (!film.paused && Math.abs(ambient.currentTime - film.currentTime) > .3) ambient.currentTime = film.currentTime;
+    }, 1000);
+  }
+  toggle.addEventListener('click', () => {
+    const paused = toggle.getAttribute('aria-pressed') === 'true';
+    if (paused) { film.play(); ambient.play(); } else { film.pause(); ambient.pause(); }
+    toggle.setAttribute('aria-pressed', String(!paused));
+    toggle.setAttribute('aria-label', paused ? 'Pause background video' : 'Play background video');
+  });
+
+  /* ---------- nav ---------- */
+  const nav = $('#nav');
+  const links = $$('.nav__links a');
+  const sections = links.map(a => $(a.getAttribute('href')));
+
+  /* ---------- mobile menu ---------- */
+  const burger = $('#burger'), menu = $('#menu');
+  const setMenu = open => {
+    root.classList.toggle('menu-open', open);
+    burger.setAttribute('aria-expanded', open);
+    burger.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+    menu.setAttribute('aria-hidden', !open);
+    document.body.style.overflow = open ? 'hidden' : '';
+    if (open) setTimeout(() => $('a', menu).focus(), 200);
+  };
+  burger.addEventListener('click', () => setMenu(!root.classList.contains('menu-open')));
+  $$('a', menu).forEach(a => a.addEventListener('click', () => setMenu(false)));
+  addEventListener('keydown', e => { if (e.key === 'Escape' && root.classList.contains('menu-open')) { setMenu(false); burger.focus(); } });
+
+  /* ---------- galleries ---------- */
+  $$('.car').forEach(car => {
+    const shots = $$('.car__shot', car), btns = $$('.car__thumbs button', car);
+    const vid = $('video', car);
+    btns.forEach((b, i) => b.addEventListener('click', () => {
+      shots.forEach((s, j) => s.classList.toggle('is-on', i === j));
+      btns.forEach((x, j) => x.setAttribute('aria-pressed', i === j));
+      if (vid) { if (shots[i] === vid && !reduce) vid.play().catch(()=>{}); else vid.pause(); }
+    }));
+  });
+
+  /* ---------- reveals + video in view ---------- */
+  const io = new IntersectionObserver(es => es.forEach(e => {
+    if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+  }), { threshold:.18 });
+  $$('[data-reveal]').forEach(el => io.observe(el));
+  const roma = $('#romaFilm');
+  new IntersectionObserver(([e]) => {
+    if (reduce) return;
+    if (e.isIntersecting && roma.classList.contains('is-on')) roma.play().catch(()=>{}); else roma.pause();
+  }, { threshold:.3 }).observe(roma);
+
+  /* ---------- scroll loop: nav state, hero drift, parallax, experience ---------- */
+  const hero = $('.hero'), stage = $('#stage'), wl = $('.hero__word--l'), wr = $('.hero__word--r');
+  const exp = $('#experience');
+  const par = $$('[data-parallax]');
+  const desktop = matchMedia('(min-width: 901px) and (min-aspect-ratio: 4/5)');
+  let ticking = false;
+  const frame = () => {
+    ticking = false;
+    const y = scrollY, h = innerHeight;
+    nav.classList.toggle('is-scrolled', y > 40);
+
+    // active nav link
+    let cur = -1;
+    sections.forEach((s, i) => { if (s && s.getBoundingClientRect().top < h * .45) cur = i; });
+    links.forEach((a, i) => i === cur ? a.setAttribute('aria-current','true') : a.removeAttribute('aria-current'));
+
+    if (!reduce) {
+      // hero: words drift apart, film eases back
+      const p = Math.min(1, y / h);
+      if (desktop.matches && root.classList.contains('is-settled') && p <= 1) {
+        wl.style.transform = `translateX(${-p * 14}vw)`;
+        wr.style.transform = `translateX(${p * 14}vw)`;
+        $('#panel').style.transform = `scale(${1 - p * .06})`;
+      }
+      // parallax
+      par.forEach(el => {
+        const r = el.parentElement.getBoundingClientRect();
+        if (r.bottom < 0 || r.top > h) return;
+        const off = (r.top + r.height / 2 - h / 2) * parseFloat(el.dataset.parallax);
+        el.style.translate = `0 ${off.toFixed(1)}px`;
+      });
+    }
+    // experience chapters
+    const r = exp.getBoundingClientRect();
+    const prog = Math.min(.999, Math.max(0, -r.top / (r.height - h)));
+    const idx = String(Math.floor(prog * 3));
+    if (exp.dataset.active !== idx) exp.dataset.active = idx;
+  };
+  const onScroll = () => { if (!ticking) { ticking = true; requestAnimationFrame(frame); } };
+  addEventListener('scroll', onScroll, { passive:true });
+  addEventListener('resize', onScroll);
+  frame();
+
+  /* ---------- reserve buttons preselect a car ---------- */
+  $$('[data-reserve]').forEach(b => b.addEventListener('click', () => {
+    const r = $$('input[name="car"]').find(i => i.value === b.dataset.reserve);
+    if (r) { r.checked = true; $('#err-car').textContent = ''; }
+  }));
+
+  /* ---------- enquiry ---------- */
+  const form = $('#enquiry'), status = $('#status');
+  const from = $('#from'), to = $('#to');
+  const iso = d => new Date(d.getTime() - d.getTimezoneOffset() * 6e4).toISOString().slice(0,10);
+  from.min = to.min = iso(new Date());
+  from.addEventListener('change', () => { to.min = from.value || from.min; if (to.value && to.value < from.value) to.value = ''; });
+  let via = 'whatsapp';
+  $$('button[type="submit"]', form).forEach(b => b.addEventListener('click', () => via = b.dataset.via));
+
+  const setErr = (id, msg, field) => {
+    $('#err-' + id).textContent = msg;
+    if (field) field.setAttribute('aria-invalid', msg ? 'true' : 'false');
+    return !msg;
+  };
+  const fmt = v => new Date(v + 'T00:00').toLocaleDateString('en-GB', { weekday:'short', day:'numeric', month:'short', year:'numeric' });
+
+  form.addEventListener('submit', e => {
+    e.preventDefault();
+    status.className = 'status'; status.textContent = '';
+    const car = form.car.value, name = form.name.value.trim(), tel = form.tel.value.trim(), note = form.note.value.trim();
+    let ok = true, first = null;
+    const check = (cond, id, msg, field, focusEl) => { if (!setErr(id, cond ? '' : msg, field)) { ok = false; first = first || focusEl || field; } };
+    check(!!car, 'car', 'Choose a car, or pick "Another car".', null, $('input[name="car"]'));
+    check(!!from.value, 'from', 'Add a pick-up date.', from);
+    check(!!to.value && (!from.value || to.value >= from.value), 'to', to.value ? 'Return date must be on or after pick-up.' : 'Add a return date.', to);
+    check(name.length > 1, 'name', 'Add your name.', form.name);
+    check(tel.replace(/\D/g,'').length >= 7, 'tel', 'Add a mobile number we can reach you on.', form.tel);
+    if (!ok) { first && first.focus(); return; }
+
+    const msg = [
+      `Hello EliteFleet, I'd like to enquire about renting ${car === 'Another car' ? 'a car from your fleet' : 'the ' + car}.`,
+      `Pick-up: ${fmt(from.value)}`,
+      `Return: ${fmt(to.value)}`,
+      `Name: ${name}`,
+      `Mobile: ${tel}`,
+      note ? `Notes: ${note}` : ''
+    ].filter(Boolean).join('\n');
+
+    if (via === 'whatsapp') {
+      if (!CONFIG.whatsapp) { status.className = 'status is-err'; status.textContent = "WhatsApp isn't connected yet. Add the business number in CONFIG, or send by email."; return; }
+      window.open('https://wa.me/' + CONFIG.whatsapp.replace(/\D/g,'') + '?text=' + encodeURIComponent(msg), '_blank', 'noopener');
+      status.className = 'status is-ok';
+      status.textContent = 'Your enquiry is ready in WhatsApp. Tap send there and our team will reply with availability.';
+    } else {
+      if (!CONFIG.email) { status.className = 'status is-err'; status.textContent = "Email isn't connected yet. Add the business address in CONFIG, or send on WhatsApp."; return; }
+      location.href = 'mailto:' + CONFIG.email + '?subject=' + encodeURIComponent('Rental enquiry: ' + car) + '&body=' + encodeURIComponent(msg);
+      status.className = 'status is-ok';
+      status.textContent = 'Your enquiry is ready in your email app. Send it there and our team will reply with availability.';
+    }
+  });
+  $$('input, textarea', form).forEach(f => f.addEventListener('input', () => {
+    if (f.name === 'car') return setErr('car', '');
+    const id = { from:'from', to:'to', name:'name', tel:'tel' }[f.name];
+    if (id && f.getAttribute('aria-invalid') === 'true') setErr(id, '', f);
+  }));
+})();
+</script>
+</body>
+</html>
