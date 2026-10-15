@@ -11,11 +11,12 @@
 <meta property="og:title" content="EliteFleet — Drive beyond ordinary">
 <meta property="og:description" content="Luxury car rental in Dubai.">
 <meta property="og:image" content="assets/hero-poster.webp">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='95 30 610 290'%3E%3Crect x='95' y='30' width='610' height='290' fill='%23000'/%3E%3Cg fill='%23d9dadc'%3E%3Cpath d='M210 35h222l-41 63H169z'/%3E%3Cpath d='M215 145h180l-34.5 53H237l-32.5 50H330l-43.5 67H100z'/%3E%3Cpath d='M418 145h212l-34.5 53H440l-76 117h-56.5z'/%3E%3C/g%3E%3Cpath fill='%23c9a24e' d='M472 35h228l-41 63H431z'/%3E%3C/svg%3E">
+<link rel="icon" type="image/png" href="assets/ef-logo.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&display=swap" rel="stylesheet">
 <link rel="preload" as="image" href="assets/hero-poster.webp">
+<link rel="preload" as="video" href="assets/hero-cullinan.mp4" type="video/mp4">
 <script>document.documentElement.classList.replace('no-js','js')</script>
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"AutoRental","name":"EliteFleet Car Rental","address":{"@type":"PostalAddress","addressLocality":"Dubai","addressCountry":"AE"}}
@@ -73,7 +74,7 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:90;opa
   transition:background .5s,padding .5s,border-color .5s;border-bottom:1px solid transparent}
 .nav.is-scrolled{background:rgba(0,0,0,.72);-webkit-backdrop-filter:blur(18px) saturate(1.2);backdrop-filter:blur(18px) saturate(1.2);border-color:var(--line);padding-top:calc(12px + env(safe-area-inset-top,0px));padding-bottom:12px}
 .nav__mark{display:block;width:62px;flex:none;margin-right:auto}
-.nav__mark svg{width:100%;height:auto;display:block}
+.nav__mark img{width:100%;height:auto;display:block}
 .nav__links{display:flex;gap:34px;list-style:none;margin:0;padding:0}
 .nav__links a{position:relative;font-size:14px;letter-spacing:.02em;text-decoration:none;color:rgba(236,231,223,.78);padding:6px 0;transition:color .3s}
 .nav__links a::after{content:"";position:absolute;left:0;right:0;bottom:0;height:1px;background:var(--bone);transform:scaleX(0);transform-origin:right;transition:transform .45s var(--ease)}
@@ -99,47 +100,38 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:90;opa
 .menu .btn{justify-content:center}
 
 /* ============ HERO ============ */
-.hero{position:relative;height:100svh;min-height:620px;overflow:hidden;background:var(--black);
-  --ph:min(76svh,820px);--pw:calc(var(--ph)*9/16);--word:min(calc(((100vw - var(--pw)) / 2 - var(--gutter) - 30px) / 3.9),180px)}
-.hero::before{content:"";position:absolute;inset:-6%;background:url(assets/hero-ambient.webp) center/cover;opacity:.45}
-.hero__ambient{position:absolute;inset:-6%;width:112%;height:112%;object-fit:cover;opacity:.55;filter:saturate(.9)}
-.hero__shade{position:absolute;inset:0;background:
-  radial-gradient(ellipse 60% 70% at 50% 50%,rgba(0,0,0,.15),rgba(0,0,0,.78) 100%),
-  linear-gradient(to bottom,rgba(0,0,0,.55),transparent 30%,transparent 70%,rgba(0,0,0,.8))}
-.hero__stage{position:absolute;left:0;right:0;top:calc(50% + 24px);transform:translateY(-50%);height:var(--ph);display:grid;grid-template-columns:1fr var(--pw) 1fr;align-items:end}
-.hero__panel{position:relative;margin:0;height:100%;overflow:hidden;z-index:2;box-shadow:0 50px 120px rgba(0,0,0,.65);background:var(--carbon)}
-.hero__film{width:100%;height:100%;object-fit:cover}
-.hero__cap{position:absolute;left:16px;bottom:14px;font-size:12px;letter-spacing:.02em;color:rgba(236,231,223,.75);text-shadow:0 1px 8px rgba(0,0,0,.6)}
-.film-toggle{position:absolute;right:10px;bottom:8px;width:36px;height:36px;border:1px solid rgba(236,231,223,.35);border-radius:50%;background:rgba(0,0,0,.35);cursor:pointer;display:grid;place-items:center;-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px)}
-.film-toggle svg{width:12px;height:12px;fill:var(--bone)}
-.film-toggle .i-play{display:none}.film-toggle[aria-pressed="true"] .i-play{display:block}.film-toggle[aria-pressed="true"] .i-pause{display:none}
+.hero{position:relative;height:100svh;min-height:560px;overflow:hidden;background:var(--black)}
+.hero__film{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 58%;pointer-events:none}
+.hero__film::-webkit-media-controls,.feature__film::-webkit-media-controls,.hero__film::-webkit-media-controls-start-playback-button,.feature__film::-webkit-media-controls-start-playback-button{display:none!important;-webkit-appearance:none}
+.hero__shade{position:absolute;inset:0;pointer-events:none;background:
+  linear-gradient(to bottom,rgba(0,0,0,.55),transparent 20%,transparent 42%,rgba(0,0,0,.55) 68%,rgba(0,0,0,.93)),
+  radial-gradient(ellipse 120% 90% at 50% 40%,transparent 50%,rgba(0,0,0,.4))}
+.hero__copy{position:absolute;z-index:2;left:var(--gutter);right:var(--gutter);bottom:calc(clamp(30px,6.5vh,70px) + env(safe-area-inset-bottom,0px))}
+.hero__mask{overflow:hidden;padding:.06em .02em .02em}
+.hero__word{display:block;font-size:min(9.3vw,188px);font-stretch:125%;font-weight:500;line-height:.86;letter-spacing:-.005em;
+  background:linear-gradient(180deg,#F6F3EE 0%,#CDCFD2 55%,#92959A 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero__row{display:flex;align-items:flex-end;justify-content:space-between;flex-wrap:wrap;gap:22px 40px;margin-top:clamp(18px,3vh,30px);padding-top:clamp(18px,3vh,28px);border-top:1px solid var(--line-strong)}
+.hero__line{margin:0;font-size:clamp(18px,1.7vw,28px);font-weight:300;letter-spacing:.01em}
+.hero__meta{margin:6px 0 0;font-size:14px;color:var(--silver);letter-spacing:.02em}
 
-.hero__side{position:relative;z-index:1;align-self:stretch;padding-top:calc(var(--ph)*.56);display:flex;flex-direction:column}
-.hero__side--l{align-items:flex-end;text-align:right;padding-right:clamp(16px,1.8vw,30px)}
-.hero__side--r{align-items:flex-start;padding-left:clamp(16px,1.8vw,30px)}
-.hero__mask{overflow:hidden;padding:.04em 0}
-.hero__word{display:block;font-size:var(--word);font-stretch:125%;font-weight:500;line-height:.86;letter-spacing:-.005em;
-  background:linear-gradient(180deg,#F4F1EC 0%,#C9CBCE 55%,#8E9196 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
-.hero__line{margin:26px 0 0;font-size:clamp(17px,1.35vw,22px);font-weight:300;letter-spacing:.01em;color:var(--bone)}
-.hero__meta{margin:26px 0 22px;font-size:14px;color:var(--silver);letter-spacing:.02em}
-.hero__mobile{display:none}
-.hero__scroll{position:absolute;left:50%;bottom:calc(18px + env(safe-area-inset-bottom,0px));width:1px;height:46px;background:linear-gradient(var(--line-strong),transparent);z-index:3;transform:translateX(-50%)}
-
-/* Hero entrance — the one orchestrated moment */
-.js .hero__panel{clip-path:inset(0 49.6% 0 49.6%)}
-.js .hero__film{transform:scale(1.14)}
-.js .hero__word--l{transform:translateX(102%)}
-.js .hero__word--r{transform:translateX(-102%)}
-.js .hero__line,.js .hero__meta,.js .hero__side .btn,.js .hero__cap,.js .film-toggle,.js .nav{opacity:0}
-.js .hero__ambient{opacity:0}
-.is-ready .hero__panel{clip-path:inset(0);transition:clip-path 1.6s var(--ease) .15s}
-.is-ready .hero__film{transform:scale(1);transition:transform 3.2s var(--ease-out) .15s}
-.is-ready .hero__word--l,.is-ready .hero__word--r{transform:none;transition:transform 1.5s var(--ease) .75s}
-.is-ready .hero__line,.is-ready .hero__meta,.is-ready .hero__side .btn,.is-ready .hero__cap,.is-ready .film-toggle{opacity:1;transition:opacity 1s 1.7s}
+/* Hero entrance — the film opens from a single line to full screen */
+.js .hero__film{clip-path:inset(0 49.7% 0 49.7%);transform:scale(1.12)}
+.is-ready .hero__film{clip-path:inset(0);transform:scale(1);transition:clip-path 1.7s var(--ease) .1s,transform 3.4s var(--ease-out) .1s}
+.js .hero__word{transform:translateY(105%)}
+.is-ready .hero__word{transform:none;transition:transform 1.4s var(--ease) .85s}
+.js .hero__row,.js .nav{opacity:0}
+.is-ready .hero__row{opacity:1;transition:opacity 1s 1.6s}
 .is-ready .nav{opacity:1;transition:opacity 1s 1.4s,background .5s,padding .5s,border-color .5s}
-.is-ready .hero__ambient{opacity:.55;transition:opacity 2.4s .4s}
 
-.is-settled .hero__word--l,.is-settled .hero__word--r{transition:none}
+/* ============ FULL-SCREEN FEATURE (Roma Spider film) ============ */
+.feature{position:relative;height:100svh;min-height:560px;margin:clamp(110px,20vh,220px) calc(-1 * var(--gutter)) 0;overflow:hidden;background:var(--carbon)}
+.feature__film{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 62%;pointer-events:none}
+.feature::after{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(to right,rgba(0,0,0,.75),rgba(0,0,0,.15) 55%,transparent),linear-gradient(to top,rgba(0,0,0,.85),transparent 50%)}
+.feature__info{position:absolute;z-index:2;left:var(--gutter);right:var(--gutter);bottom:calc(clamp(40px,9vh,96px) + env(safe-area-inset-bottom,0px));max-width:560px}
+.feature h3{margin:0}
+.feature .car__price{margin-bottom:28px}
+.js.motion .feature .feature__film{clip-path:inset(10% 8%)}
+.js.motion .feature.in .feature__film{clip-path:inset(0);transition:clip-path 1.6s var(--ease)}
 
 /* ============ SECTION SHELL ============ */
 .section{position:relative;padding:clamp(96px,16vh,180px) var(--gutter)}
@@ -268,7 +260,7 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:90;opa
 .foot{background:var(--black);border-top:1px solid var(--line);padding:72px var(--gutter) calc(36px + env(safe-area-inset-bottom,0px))}
 .foot__grid{display:grid;grid-template-columns:repeat(12,1fr);gap:32px 24px}
 .foot__brand{grid-column:1/span 4}
-.foot__brand svg{width:88px;height:auto;display:block;margin-bottom:22px}
+.foot__brand img{width:96px;height:auto;display:block;margin-bottom:22px}
 .foot__brand p{margin:0;color:var(--silver);font-size:15px;max-width:28ch}
 .foot__col{grid-column:span 2}
 .foot__col--wide{grid-column:span 4}
@@ -289,26 +281,12 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:90;opa
   .nav__links,.nav .btn{display:none}
   .nav__burger{display:block}
   .nav__mark{width:54px}
-  /* hero: the portrait film becomes the whole screen */
-  .hero__ambient,.hero__side,.hero__scroll{display:none}
-  .hero__stage{position:absolute;inset:0;top:0;transform:none;height:auto;display:block}
-  .hero__panel{position:absolute;inset:0;box-shadow:none}
-  .js .hero__panel{clip-path:inset(0 0 0 0)}
-  .hero__panel::after{content:"";position:absolute;inset:0;background:linear-gradient(to bottom,rgba(0,0,0,.6),transparent 20%,transparent 36%,rgba(0,0,0,.72) 62%,rgba(0,0,0,.95) 86%)}
-  .hero__cap{display:none}
-  .film-toggle{z-index:2;top:calc(84px + env(safe-area-inset-top,0px));bottom:auto;right:var(--gutter)}
-  .hero__mobile{display:block;position:absolute;z-index:3;left:var(--gutter);right:var(--gutter);bottom:calc(34px + env(safe-area-inset-bottom,0px))}
-  .hero__mobile .hero__mask{margin-left:-.04em}
-  .hero__mobile .hero__word{font-size:min(10.9vw,84px)}
-  .hero__mobile .hero__line{margin-top:18px}
-  .hero__mobile .hero__meta{margin:6px 0 26px}
-  .hero__mobile .btn{width:100%;justify-content:center}
-  .js .hero__mobile .hero__word{transform:translateY(105%)}
-  .is-ready .hero__mobile .hero__word{transform:none;transition:transform 1.3s var(--ease) .5s}
-  .js .hero__mobile .hero__line,.js .hero__mobile .hero__meta,.js .hero__mobile .btn{opacity:0}
-  .is-ready .hero__mobile .hero__line,.is-ready .hero__mobile .hero__meta,.is-ready .hero__mobile .btn{opacity:1;transition:opacity 1s 1.2s}
-  .js .hero__film{transform:scale(1.12)}
-
+  .hero__film,.feature__film{object-position:50% 50%}
+  .hero__word{font-size:min(10.9vw,96px)}
+  .hero__row{display:block}
+  .hero__row .btn{width:100%;justify-content:center;margin-top:24px}
+  .feature::after{background:linear-gradient(to top,rgba(0,0,0,.92) 8%,rgba(0,0,0,.25) 55%,rgba(0,0,0,.15))}
+  .feature .btn{width:100%;justify-content:center}
   .head{display:block}
   .head p{margin-top:22px}
   .car,.car--flip{display:flex;flex-direction:column;align-items:stretch;gap:34px}
@@ -338,34 +316,16 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:90;opa
 @media (prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
   *,*::before,*::after{transition-duration:.01ms!important;transition-delay:0s!important;animation:none!important}
-  .js .hero__panel,.js .hero__film,.js .hero__word,.js .hero__word--l,.js .hero__word--r{clip-path:none;transform:none}
+  .js .hero__film,.js .hero__word{clip-path:none;transform:none}
 }
 </style>
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
 
-<svg width="0" height="0" style="position:absolute" aria-hidden="true">
-  <defs>
-    <linearGradient id="efSilver" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#F6F6F5"/><stop offset=".45" stop-color="#B7B9BC"/><stop offset=".7" stop-color="#E4E5E6"/><stop offset="1" stop-color="#8F9296"/>
-    </linearGradient>
-    <linearGradient id="efGold" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#8C6A24"/><stop offset=".45" stop-color="#E9C977"/><stop offset="1" stop-color="#A9822F"/>
-    </linearGradient>
-    <symbol id="ef" viewBox="95 30 610 290">
-      <g fill="url(#efSilver)">
-        <path d="M210 35h222l-41 63H169z"/>
-        <path d="M215 145h180l-34.5 53H237l-32.5 50H330l-43.5 67H100z"/>
-        <path d="M418 145h212l-34.5 53H440l-76 117h-56.5z"/>
-      </g>
-      <path fill="url(#efGold)" d="M472 35h228l-41 63H431z"/>
-    </symbol>
-  </defs>
-</svg>
 
 <header class="nav" id="nav">
-  <a class="nav__mark" href="#top" aria-label="EliteFleet, back to top"><svg viewBox="95 30 610 290" aria-hidden="true"><use href="#ef"/></svg></a>
+  <a class="nav__mark" href="#top" aria-label="EliteFleet, back to top"><img src="assets/ef-logo.png" alt="" width="686" height="304"></a>
   <nav aria-label="Main">
     <ul class="nav__links">
       <li><a href="#collection">Collection</a></li>
@@ -393,38 +353,18 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:90;opa
 <!-- ============ HERO ============ -->
 <section class="hero" id="top" aria-labelledby="heroTitle">
   <h1 class="sr" id="heroTitle">EliteFleet. Drive beyond ordinary. Luxury car rental in Dubai.</h1>
-  <video class="hero__ambient" id="ambient" src="assets/hero-ambient.mp4" poster="assets/hero-ambient.webp" muted loop playsinline preload="auto" aria-hidden="true" tabindex="-1"></video>
+  <video class="hero__film" id="film" src="assets/hero-cullinan.mp4" poster="assets/hero-poster.webp" autoplay muted loop playsinline webkit-playsinline disablepictureinpicture disableremoteplayback preload="auto" tabindex="-1" aria-label="A black Rolls-Royce Cullinan in the desert outside Dubai at golden hour"></video>
   <div class="hero__shade"></div>
-
-  <div class="hero__stage" id="stage">
-    <div class="hero__side hero__side--l" aria-hidden="true">
-      <div class="hero__mask"><span class="hero__word hero__word--l">ELITE</span></div>
-      <p class="hero__line">Drive beyond ordinary.</p>
-    </div>
-
-    <figure class="hero__panel" id="panel">
-      <video class="hero__film" id="film" src="assets/hero-cullinan.mp4" poster="assets/hero-poster.webp" muted loop playsinline preload="auto" aria-label="A black Rolls-Royce Cullinan in the desert outside Dubai at golden hour"></video>
-      <figcaption class="hero__cap">Rolls-Royce Cullinan, Dubai desert</figcaption>
-      <button class="film-toggle" id="filmToggle" aria-pressed="false" aria-label="Pause background video">
-        <svg class="i-pause" viewBox="0 0 12 12"><rect x="2" y="1" width="3" height="10"/><rect x="7" y="1" width="3" height="10"/></svg>
-        <svg class="i-play" viewBox="0 0 12 12"><path d="M3 1l8 5-8 5z"/></svg>
-      </button>
-    </figure>
-
-    <div class="hero__side hero__side--r">
-      <div class="hero__mask" aria-hidden="true"><span class="hero__word hero__word--r">FLEET</span></div>
-      <p class="hero__meta">Luxury Car Rental · Dubai</p>
-      <a class="btn btn--line" href="#collection">Explore the collection</a>
-    </div>
-  </div>
-
-  <div class="hero__mobile">
+  <div class="hero__copy">
     <div class="hero__mask" aria-hidden="true"><span class="hero__word">ELITEFLEET</span></div>
-    <p class="hero__line" aria-hidden="true">Drive beyond ordinary.</p>
-    <p class="hero__meta">Luxury Car Rental · Dubai</p>
-    <a class="btn" href="#collection">Explore the collection</a>
+    <div class="hero__row">
+      <div>
+        <p class="hero__line">Drive beyond ordinary.</p>
+        <p class="hero__meta">Luxury Car Rental · Dubai</p>
+      </div>
+      <a class="btn" href="#collection">Explore the collection</a>
+    </div>
   </div>
-  <span class="hero__scroll" aria-hidden="true"></span>
 </section>
 
 <!-- ============ 01 COLLECTION ============ -->
@@ -456,24 +396,13 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:90;opa
     </div>
   </article>
 
-  <article class="car car--flip" data-car="roma" aria-labelledby="carRoma">
-    <div class="car__media" data-reveal>
-      <div class="car__frame" data-parallax=".08">
-        <video class="car__shot is-on" id="romaFilm" src="assets/roma-spider.mp4" poster="assets/roma-front.webp" muted loop playsinline preload="metadata" aria-label="Yellow Ferrari Roma Spider in the EliteFleet showroom"></video>
-        <img class="car__shot" src="assets/roma-front.webp" alt="Yellow Ferrari Roma Spider, front view, in the EliteFleet showroom" loading="lazy" width="720" height="1280">
-        <img class="car__shot" src="assets/roma-detail.webp" alt="Close-up of the Roma Spider's headlight" loading="lazy" width="720" height="1280">
-      </div>
-    </div>
-    <div class="car__info">
+  <article class="feature" data-car="roma" data-reveal aria-labelledby="carRoma">
+    <video class="feature__film" id="romaFilm" src="assets/roma-spider.mp4" poster="assets/roma-poster.webp" autoplay muted loop playsinline webkit-playsinline disablepictureinpicture disableremoteplayback preload="metadata" tabindex="-1" aria-label="Yellow Ferrari Roma Spider in the EliteFleet showroom"></video>
+    <div class="feature__info">
       <p class="car__cat">Convertible grand tourer</p>
       <h3 id="carRoma"><span class="car__make">Ferrari</span><span class="car__model display">Roma Spider</span></h3>
       <p class="car__spec">3.9 L twin-turbo V8, soft-top roof, 2+2 seats</p>
       <p class="car__price"><span>Daily rate</span><strong data-rate="roma">On request</strong></p>
-      <ul class="car__thumbs" aria-label="Roma Spider photos">
-        <li><button aria-pressed="true" aria-label="Showroom film"><img src="assets/final-showroom.webp" alt="" loading="lazy"></button></li>
-        <li><button aria-pressed="false" aria-label="Front view"><img src="assets/roma-front.webp" alt="" loading="lazy"></button></li>
-        <li><button aria-pressed="false" aria-label="Headlight detail"><img src="assets/roma-detail.webp" alt="" loading="lazy"></button></li>
-      </ul>
       <a class="btn" href="#reserve" data-reserve="Ferrari Roma Spider">Reserve the Roma Spider</a>
     </div>
   </article>
@@ -592,7 +521,7 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:90;opa
 <footer class="foot" id="contact">
   <div class="foot__grid">
     <div class="foot__brand">
-      <svg viewBox="95 30 610 290" role="img" aria-label="EliteFleet"><use href="#ef"/></svg>
+      <img src="assets/ef-logo.png" alt="EliteFleet" width="686" height="304">
       <p>EliteFleet Car Rental. Luxury and performance cars in Dubai.</p>
     </div>
     <div class="foot__col">
@@ -651,33 +580,23 @@ const CONFIG = {
   });
   $$('[data-rate]').forEach(el => { const r = CONFIG.rates[el.dataset.rate]; if (r) el.textContent = r + ' / day'; });
 
-  /* ---------- hero entrance + video ---------- */
-  const film = $('#film'), ambient = $('#ambient'), toggle = $('#filmToggle');
-  let started = false;
+  /* ---------- hero entrance + always-on video ---------- */
+  const film = $('#film'), roma = $('#romaFilm');
+  const play = v => { v.muted = true; v.playsInline = true; const p = v.play(); if (p) p.catch(() => {}); };
+  let started = false, romaInView = false;
   const start = () => {
     if (started) return; started = true;
     requestAnimationFrame(() => root.classList.add('is-ready'));
-    setTimeout(() => root.classList.add('is-settled'), 2600);
   };
-  if (reduce) {
-    start();
-    toggle.setAttribute('aria-pressed','true'); toggle.setAttribute('aria-label','Play background video');
-  } else {
-    const play = v => { const p = v.play(); if (p) p.catch(() => {}); };
-    play(film); play(ambient);
-    film.addEventListener('playing', start, { once:true });
-    film.addEventListener('loadeddata', start, { once:true });
-    setTimeout(start, 1400);
-    setInterval(() => { // keep the blurred backdrop in step with the film
-      if (!film.paused && Math.abs(ambient.currentTime - film.currentTime) > .3) ambient.currentTime = film.currentTime;
-    }, 1000);
-  }
-  toggle.addEventListener('click', () => {
-    const paused = toggle.getAttribute('aria-pressed') === 'true';
-    if (paused) { film.play(); ambient.play(); } else { film.pause(); ambient.pause(); }
-    toggle.setAttribute('aria-pressed', String(!paused));
-    toggle.setAttribute('aria-label', paused ? 'Pause background video' : 'Play background video');
-  });
+  play(film);
+  film.addEventListener('playing', start, { once:true });
+  film.addEventListener('loadeddata', start, { once:true });
+  setTimeout(start, reduce ? 0 : 1400);
+  // the hero film never stays paused
+  film.addEventListener('pause', () => { if (!document.hidden) setTimeout(() => play(film), 150); });
+  const kick = () => { play(film); if (romaInView) play(roma); };
+  ['touchstart','pointerdown','keydown','scroll'].forEach(ev => addEventListener(ev, kick, { passive:true, once:true }));
+  document.addEventListener('visibilitychange', () => { if (!document.hidden) kick(); });
 
   /* ---------- nav ---------- */
   const nav = $('#nav');
@@ -701,11 +620,9 @@ const CONFIG = {
   /* ---------- galleries ---------- */
   $$('.car').forEach(car => {
     const shots = $$('.car__shot', car), btns = $$('.car__thumbs button', car);
-    const vid = $('video', car);
     btns.forEach((b, i) => b.addEventListener('click', () => {
       shots.forEach((s, j) => s.classList.toggle('is-on', i === j));
       btns.forEach((x, j) => x.setAttribute('aria-pressed', i === j));
-      if (vid) { if (shots[i] === vid && !reduce) vid.play().catch(()=>{}); else vid.pause(); }
     }));
   });
 
@@ -714,18 +631,16 @@ const CONFIG = {
     if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
   }), { threshold:.18 });
   $$('[data-reveal]').forEach(el => io.observe(el));
-  const roma = $('#romaFilm');
   new IntersectionObserver(([e]) => {
-    if (reduce) return;
-    if (e.isIntersecting && roma.classList.contains('is-on')) roma.play().catch(()=>{}); else roma.pause();
-  }, { threshold:.3 }).observe(roma);
+    romaInView = e.isIntersecting;
+    if (romaInView) play(roma); else roma.pause();
+  }, { threshold:.15 }).observe(roma);
 
   /* ---------- scroll loop: nav state, hero drift, parallax, experience ---------- */
-  const hero = $('.hero'), stage = $('#stage'), wl = $('.hero__word--l'), wr = $('.hero__word--r');
+  const heroCopy = $('.hero__copy');
   const exp = $('#experience');
   const par = $$('[data-parallax]');
-  const desktop = matchMedia('(min-width: 901px) and (min-aspect-ratio: 4/5)');
-  let ticking = false;
+    let ticking = false;
   const frame = () => {
     ticking = false;
     const y = scrollY, h = innerHeight;
@@ -737,13 +652,9 @@ const CONFIG = {
     links.forEach((a, i) => i === cur ? a.setAttribute('aria-current','true') : a.removeAttribute('aria-current'));
 
     if (!reduce) {
-      // hero: words drift apart, film eases back
+      // hero: film drifts slower than the page, copy fades
       const p = Math.min(1, y / h);
-      if (desktop.matches && root.classList.contains('is-settled') && p <= 1) {
-        wl.style.transform = `translateX(${-p * 14}vw)`;
-        wr.style.transform = `translateX(${p * 14}vw)`;
-        $('#panel').style.transform = `scale(${1 - p * .06})`;
-      }
+      if (p < 1) { film.style.translate = `0 ${(y * .35).toFixed(1)}px`; heroCopy.style.opacity = String(Math.max(0, 1 - p * 1.4)); }
       // parallax
       par.forEach(el => {
         const r = el.parentElement.getBoundingClientRect();
