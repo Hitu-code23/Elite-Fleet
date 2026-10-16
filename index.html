@@ -843,7 +843,7 @@ html[lang="ru"] .exp__lines{font-size:clamp(34px,5.2vw,92px)}
    ========================================================= */
 const CONFIG = {
   whatsapp:  "971585210105",   // 058 521 0105 — digits only, with country code
-  phone:     "",   // as it should display, e.g. "+971 5X XXX XXXX"
+  phone:     "+971 58 594 5048",   // phone calls
   email:     "preritbudhiraja10@gmail.com",
   address:   "Al Tayer Warehouse 24, Al Quoz 1, Dubai",   // tapping it opens Google Maps
   instagram: "https://www.instagram.com/elitefleetcar/",   // full profile URL
@@ -938,6 +938,7 @@ $$('.yr').forEach(e => e.textContent = new Date().getFullYear());
 /* config -> contact details */
 const PIN_ICON = '<svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" d="M12 21s-6.5-5.6-6.5-11a6.5 6.5 0 0 1 13 0c0 5.4-6.5 11-6.5 11z"/><circle cx="12" cy="10" r="2.4" fill="none" stroke="currentColor" stroke-width="1.7"/></svg>';
 const MAIL_ICON = '<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2.5" fill="none" stroke="currentColor" stroke-width="1.7"/><path fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" d="m4 7 8 6 8-6"/></svg>';
+const TEL_ICON = '<svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" d="M6.6 3.5h2.6l1.4 4-2 1.4a12 12 0 0 0 6.5 6.5l1.4-2 4 1.4v2.6a2 2 0 0 1-2.2 2A16.5 16.5 0 0 1 4.6 5.7a2 2 0 0 1 2-2.2z"/></svg>';
 const IG_ICON = '<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5.2" fill="none" stroke="currentColor" stroke-width="1.7"/><circle cx="12" cy="12" r="4.1" fill="none" stroke="currentColor" stroke-width="1.7"/><circle cx="17.4" cy="6.6" r="1.15" fill="currentColor"/></svg>';
 const WA_ICON_S = document.querySelector('#waFloat svg') ? document.querySelector('#waFloat svg').outerHTML : '';
 const igHandle = u => { const m = (u || '').match(/instagram\.com\/([^/?#]+)/); return m ? m[1] : 'instagram'; };
@@ -947,7 +948,7 @@ $$('[data-config]').forEach(a => {
   const k = a.dataset.config, v = CONFIG[k];
   if (!v) { a.textContent = labels[k] + ' — to be added'; a.classList.add('ph'); a.removeAttribute('href'); return; }
   if (k === 'whatsapp') { const d = v.replace(/\D/g,''); a.href = 'https://wa.me/' + d; a.innerHTML = WA_ICON_S + '<bdi>' + prettyPhone(d) + '</bdi>'; a.classList.add('soc-link'); a.target = '_blank'; a.rel = 'noopener'; }
-  else if (k === 'phone') { a.href = 'tel:' + v.replace(/[^\d+]/g,''); a.textContent = v; }
+  else if (k === 'phone') { a.href = 'tel:' + v.replace(/[^\d+]/g,''); a.innerHTML = TEL_ICON + '<bdi>' + v + '</bdi>'; a.classList.add('soc-link'); a.setAttribute('aria-label', 'Call EliteFleet: ' + v); }
   else if (k === 'email') { a.href = 'mailto:' + v; a.innerHTML = MAIL_ICON + '<bdi>' + v + '</bdi>'; a.classList.add('soc-link'); }
   else if (k === 'instagram') { a.href = v; a.innerHTML = IG_ICON + '<bdi>@' + igHandle(v) + '</bdi>'; a.classList.add('soc-link'); a.setAttribute('aria-label', 'EliteFleet on Instagram, @' + igHandle(v)); a.target = '_blank'; a.rel = 'noopener'; }
   else if (k === 'address') { a.href = 'https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent(v); a.innerHTML = PIN_ICON + '<bdi>' + v + '</bdi>'; a.classList.add('soc-link'); a.setAttribute('aria-label', 'Open the showroom location in Google Maps'); a.target = '_blank'; a.rel = 'noopener'; }
